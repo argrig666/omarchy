@@ -28,9 +28,9 @@ Before you reboot, try restarting the offending subsystem on its own. _Update > 
 
 ### The screen froze when I rebooted
 
-A raw `systemctl reboot` (or `reboot`) from a terminal or coding agent kills Hyprland immediately, so the last frame stays on screen while systemd shuts down. Use `omarchy system reboot` instead — it shows an on-screen notice and closes windows first.
+A raw `systemctl reboot` (or `reboot`) from a terminal or coding agent gives no sign it is happening: the last frame stays on screen while systemd shuts down. Use `omarchy system reboot` instead — it shows an on-screen notice and closes windows first.
 
-If the machine still hangs on reboot, a kernel driver is probably stuck in uninterruptible sleep. Unloading an in-use audio, GPU, or Wi-Fi module with `modprobe -r` is a common way to get there. Wait it out, or hold the power button; don't try to unload the driver again.
+If the machine still hangs on reboot, a kernel driver may be stuck in uninterruptible sleep. Unloading an audio, GPU, or Wi-Fi module that is still in use with `modprobe -r` is one way to get there. Wait it out, or hold the power button; don't try to unload the driver again.
 
 ### Why are my external speakers not playing?
 

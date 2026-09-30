@@ -227,7 +227,7 @@ omarchy system shutdown         # Shutdown
 omarchy system reboot           # Reboot
 ```
 
-`omarchy system reboot` and `omarchy system shutdown` schedule the action in the user systemd, show an on-screen notice, then close application windows. Use those. Do not run `systemctl reboot`, `reboot`, `shutdown`, or `poweroff` from an agent — they kill Hyprland on the still-drawn frame, so the machine looks frozen while systemd continues. Do not wait for the session to die after scheduling the reboot.
+`omarchy system reboot` and `omarchy system shutdown` schedule the action in the user systemd, show an on-screen notice, then close application windows. Use those. Do not run `systemctl reboot`, `reboot`, `shutdown`, or `poweroff` from an agent — they skip the notice and the window close, so the desktop sits on its last frame while systemd shuts down and the machine looks frozen. Do not wait for the session to die after scheduling the reboot.
 
 Do not `modprobe -r` in-use audio, GPU, or Wi-Fi drivers as a way to avoid a reboot. A module stuck in uninterruptible sleep (D-state) can stall shutdown the same way.
 
